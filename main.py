@@ -29,7 +29,7 @@ async def on_message(message):
 
     if message.content.startswith("/matan"):
         # Reads the message then give it to an ai
-        result = ollama.generate(model=os.getevn("OLLAMA_MODEL"), prompt=message.content)
+        result = ollama.generate(model=os.getenv("OLLAMA_MODEL"), prompt=message.content)
         await message.channel.send(result['response'])
 
 client.run(os.getenv('DISCORD_TOKEN'))
