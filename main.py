@@ -30,6 +30,7 @@ async def on_message(message):
     if message.content.startswith("/matan"):
         # Reads the message then give it to an ai
         clean_message_content = message.content.replace("/matan", "")
+        print(f"asking ai {clean_message_content}")
         result = ollama.generate(model=os.getenv("OLLAMA_MODEL"), prompt=clean_message_content)
         await message.channel.send(result['response'])
 
